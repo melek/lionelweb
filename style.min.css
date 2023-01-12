@@ -288,6 +288,11 @@ a.button:active, input[type=submit].button:active {
 a.button:visited, input[type=submit].button:visited {
   color: white;
 }
+a.button[disabled] {
+  pointer-events: none;
+  background-color: gray;
+  font-style: italic;
+}
 
 /* 3.1 Anchor Button Subcomponents
 ****************************************/

@@ -1,0 +1,530 @@
+/* Lionelweb.com Stylesheet
+
+	1. Sass Variables & Mixins
+	2. Core Semantic Tag Styling
+		2.1 Utility Classes
+	3. Anchor Button Component
+		3.1 Resume Anchor Button Subcomponent
+	4. Logo Shelf Components
+	5. Portfolio Details Modal Component
+*/
+/* 0. Debug CSS 
+****************
+* { outline: lime solid 1px; }
+img { outline: aqua solid 1px; }
+h1, h2, h3, h4, h5, h6 { outline: pink solid 1px; }
+div { outline: red solid 1px; }
+p { outline: darkred solid 1px; }
+span { outline: lightblue solid 1px; }
+a, button {	outline: blue solid 1px; }
+input { outline: blue solid 1px;} 
+label {	outline: maroon solid 1px }
+
+/* 1. SASS Variables
+********************/
+/* 2. Core Semantic Tag Styling
+*******************************/
+html {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #c8fad7;
+  background: url("assets/congruent_pentagon.png");
+  background-attachment: fixed;
+  font-size: 1.125em;
+  line-height: 1.56em;
+  font-family: Century, "Palatino Linotype", serif;
+  color: #30303a;
+}
+body a {
+  color: darkorange;
+}
+body a:visited {
+  color: darkorange;
+}
+body a:hover {
+  color: orange;
+}
+body a:active {
+  color: sandybrown;
+}
+body a {
+  text-decoration: none;
+  font-weight: bold;
+  transition-duration: 0.1s;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px 0 0px 0;
+  overflow: auto;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+nav .home-logo {
+  width: 40px;
+  border-radius: 100%;
+  float: left;
+  background-color: white;
+}
+nav ul {
+  box-sizing: border-box;
+  max-width: 900px;
+  list-style-type: none;
+  text-align: right;
+  padding: 0 0.5rem;
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  overflow: hidden;
+}
+nav ul li {
+  display: inline;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+nav ul li a {
+  color: #30303a;
+  border: 0;
+}
+nav ul li a:visited {
+  color: #30303a;
+}
+nav ul li a:hover {
+  color: #30303a;
+  border-bottom: 5px;
+  border-style: solid;
+  border-color: orange;
+}
+nav ul li a:active {
+  color: #30303a;
+}
+nav ul li:first-child {
+  float: left;
+}
+nav ul li a {
+  padding: 0 2px 5px 0;
+  letter-spacing: 2px;
+  margin: 0 1.5rem 0 0;
+}
+nav ul li:first-child a {
+  color: orange;
+}
+nav ul li:last-child a {
+  margin-right: 0px;
+}
+nav ul li .menu-text {
+  display: none;
+}
+nav ul li .menu-icon {
+  display: none;
+  width: 24px;
+  vertical-align: middle;
+}
+@media (min-width: 768px) {
+  nav ul li .menu-icon {
+    display: inline-block;
+  }
+}
+
+header {
+  display: block;
+  padding-top: 2rem;
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+header .ldg-logo {
+  display: block;
+  margin: 3rem auto 1rem auto;
+  max-width: 80%;
+}
+header h1 {
+  display: none;
+}
+
+main {
+  display: block;
+  background-color: white;
+  margin: 0;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+article {
+  display: block;
+  padding: 10px 30px 0 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+article h2 {
+  padding-top: 3rem;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+footer {
+  display: block;
+  height: 8rem;
+  width: 100%;
+  padding-top: 10px;
+  text-align: center;
+  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #647d6b;
+}
+
+/* 2.1 Utility Classes
+**********************/
+.center {
+  text-align: center;
+}
+
+.spacer-1 {
+  display: inline-block;
+  width: 1rem;
+}
+
+.linebreak-min-small {
+  display: block;
+  height: 0.5rem;
+}
+@media (min-width: 500px) {
+  .linebreak-min-small {
+    display: inline-block;
+  }
+}
+
+.linebreak-min-medium {
+  display: block;
+  height: 0.5rem;
+}
+@media (min-width: 768px) {
+  .linebreak-min-medium {
+    display: inline-block;
+  }
+}
+
+.img--inline {
+  display: block;
+  margin: 0.5rem auto;
+  width: 150px;
+}
+@media (min-width: 500px) {
+  .img--inline {
+    display: block;
+    float: right;
+    margin: 0.5rem;
+    margin-right: 0;
+    clear: right;
+  }
+}
+@media (min-width: 768px) {
+  .img--inline {
+    margin: 1rem;
+  }
+}
+
+/* 2.2 Grid Layout Classes
+*********************/
+.grid {
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.grid .grid__cell {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+.grid .grid__cell img {
+  vertical-align: middle;
+}
+
+/* 3. Anchor Button Component
+*****************************/
+a.button, input[type=submit].button {
+  color: white;
+  display: inline-block;
+  position: relative;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 8px 8px 8px 8px;
+  border: none;
+  box-shadow: 1px 1px 0 0 rgba(128, 128, 148, 0.5);
+  transition: background-color 0.15s linear;
+  background-color: darkorange;
+  box-sizing: border-box;
+  width: 100%;
+}
+@media (min-width: 500px) {
+  a.button, input[type=submit].button {
+    width: auto;
+  }
+}
+a.button:hover, a.button:focus, input[type=submit].button:hover, input[type=submit].button:focus {
+  color: white;
+  background-color: orange;
+  top: -1px;
+  left: -1px;
+  box-shadow: 2px 2px 1px 0 rgba(128, 128, 148, 0.4);
+}
+a.button:active, input[type=submit].button:active {
+  color: white;
+  background-color: sandybrown;
+  top: 1px;
+  left: 1px;
+  box-shadow: none;
+}
+a.button:visited, input[type=submit].button:visited {
+  color: white;
+}
+
+/* 3.1 Anchor Button Subcomponents
+****************************************/
+a.button.button--resume {
+  padding: 8px 40px;
+  background-image: url("assets/pdf.png");
+  background-position: 4px center;
+  background-repeat: no-repeat;
+  background-size: 32px;
+}
+@media (min-width: 500px) {
+  a.button.button--resume {
+    padding: 8px 8px 8px 40px;
+  }
+}
+
+a.button.button--linkedin {
+  padding: 8px 40px;
+  background-image: url("assets/linkedin.png");
+  background-position: 4px center;
+  background-repeat: no-repeat;
+  background-size: 32px;
+}
+@media (min-width: 500px) {
+  a.button.button--linkedin {
+    padding: 8px 8px 8px 40px;
+  }
+}
+
+a.button.button--portfolio {
+  padding: 8px 40px;
+  background-image: url("assets/portfolio.png");
+  background-position: 4px center;
+  background-repeat: no-repeat;
+  background-size: 32px;
+}
+@media (min-width: 500px) {
+  a.button.button--portfolio {
+    padding: 8px 8px 8px 40px;
+  }
+}
+
+a.button.button--contact {
+  padding: 8px 44px;
+  background-image: url("assets/mail.png");
+  background-position: 4px center;
+  background-repeat: no-repeat;
+  background-size: 32px;
+}
+@media (min-width: 500px) {
+  a.button.button--contact {
+    padding: 8px 8px 8px 44px;
+  }
+}
+
+/* 4. Logo Shelf Components
+
+Usage: Inline Logo
+	... <img class="logo-inline"> ...
+Usage: 2 Logos
+	<div><a><img class="logo"></a
+		><a><img class="logo"></a
+	></div>
+
+Usage: 3 Logos
+	<div><a><img class="logo logo--3up"></a
+		><a><img class="logo logo--3up"></a
+		><a><img class="logo logo--3up"></a
+	></div>
+
+Note: Ensure no whitespace is present between images.
+
+*****************************************************/
+.logo {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 1rem 5%;
+  vertical-align: middle;
+}
+.logo:first-child {
+  padding-left: 15%;
+}
+.logo:last-child {
+  padding-right: 15%;
+}
+@media (min-width: 768px) {
+  .logo {
+    padding: 1rem 5%;
+  }
+  .logo:first-child {
+    padding-left: 25%;
+  }
+  .logo:last-child {
+    padding-right: 25%;
+  }
+}
+
+.logo--3up {
+  width: 33%;
+  padding: 1rem 4%;
+}
+.logo--3up:first-child {
+  padding-left: 6%;
+}
+.logo--3up:last-child {
+  padding-right: 6%;
+}
+
+/* 5. Portfolio Details Modal Component
+Usage:
+	<label class="details-toggle" for="ID">
+	...
+	<input class="details" type="checkbox" id="ID">
+	<div class="details><div>
+		Content Goes Here
+	</div></div>
+*************************/
+.details__toggler {
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border-bottom: 2px solid transparent;
+  overflow: hidden;
+  /*
+  	&:hover {
+  		border-bottom: 2px solid $link-color;
+  	}
+  
+  	&.details__toggler--active {
+  		border-bottom: 2px solid $link-color;
+  	}*/
+}
+.details__toggler:before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-bottom: 2px solid darkorange;
+  transform: scaleX(0);
+  transition: transform 0.15s linear;
+}
+.details__toggler:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  transform: translateY(1rem);
+  border-top: 0;
+  border-left: 1rem solid transparent;
+  border-right: 1rem solid transparent;
+  border-bottom: 1rem solid darkorange;
+  transition: transform 0.1s ease-in;
+}
+.details__toggler:hover:before {
+  transform: scaleX(0.5);
+}
+.details__toggler.details__toggler--active:before, .details__toggler.details__toggler--active:hover:before {
+  transform: scaleX(0.65);
+}
+.details__toggler.details__toggler--active:after {
+  display: block;
+  transform: translateY(0);
+}
+
+input.details {
+  display: none;
+}
+
+.details__content {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  max-height: 0;
+  transition: all 0.25s linear 0s;
+  position: relative;
+}
+input.details:checked + .details__content {
+  max-height: 50rem;
+  transition: all 0.25s linear 0.25s;
+}
+@media (min-width: 500px) {
+  input.details:checked + .details__content {
+    max-height: 35rem;
+  }
+}
+@media (min-width: 768px) {
+  input.details:checked + .details__content {
+    max-height: 20rem;
+  }
+}
+.details__content div {
+  padding: 1rem;
+}
+.details__content div p {
+  margin-top: 0;
+}
+.details__content div ul {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  border-left: orange 2px dashed;
+}
+@media (min-width: 500px) {
+  .details__content div ul {
+    margin: 0 0 1rem 1rem;
+    border-right: none;
+    float: right;
+    max-width: 45%;
+  }
+}
+@media (min-width: 768px) {
+  .details__content div ul {
+    max-width: 35%;
+  }
+}
+.details__content div ul li {
+  list-style: square outside;
+  font-size: 0.75rem;
+  margin-left: 1rem;
+}
+.details__content a {
+  z-index: 100;
+}
+
+#contact-form {
+  max-width: 500px;
+  min-width: 320px;
+  margin: 1rem auto;
+}
+#contact-form input:not([type=submit]) {
+  width: 100%;
+}
+
+/*# sourceMappingURL=style.min.css.map */

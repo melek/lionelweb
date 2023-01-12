@@ -1,0 +1,68 @@
+body {
+    margin: 4rem auto 8rem;    
+    font-family: 'Press Start 2P', monospace;
+    background-image: url("https://lionelweb.com/turtle/img/stars.png");
+    background-size: 400%;
+}
+
+body, h1, h2 {
+    font-family: 'Press Start 2P', monospace;
+}
+
+p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {    
+    width: 100%;
+    text-align: center;
+}
+
+header img {
+    max-width: 95%;
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+main {
+    padding: 2.5rem 0;
+}
+article {
+    text-align: center;
+    vertical-align: top;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 25%;
+}
+
+article img {
+    display: block;
+    margin: 0 auto 1rem;
+    width: 90%;
+    vertical-align: top;
+}
+
+article h2 {
+    display: block;
+    font-size: 0.5rem;
+    height: 4rem;
+    vertical-align: top;
+}
+
+footer {
+    text-align: center;
+    padding-top: 1rem;
+    font-size: 0.5rem;
+}
+
+@media screen and (min-width: 800px) {
+    header h1 { 
+        font-size: 1.75rem;
+    }
+
+    article h2 {
+        font-size: 1rem;
+    }
+}
